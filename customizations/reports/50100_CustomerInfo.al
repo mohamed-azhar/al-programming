@@ -3,7 +3,6 @@ report 50100 "Customer Info"
     Caption = 'Customer Information';
     UsageCategory = Administration;
     ApplicationArea = All;
-    PreviewMode = PrintLayout;
     DefaultLayout = RDLC;
     RDLCLayout = '.\customizations\reports\report-layouts\50100_customer_information.rdl';
 
@@ -15,12 +14,10 @@ report 50100 "Customer Info"
 
             column(No; "No.") { }
             column(Name; Name) { }
+            column("Cus_Picture"; customerInfo.Image) { }
             column(Address; Address) { }
             column(Phone_No_; "Phone No.") { }
-            column(City; City) { }
             column(No__of_Orders; "No. of Orders") { }
-            column(Retail_Customer_Group; "Retail Customer Group") { }
-            column(VAT_Registration_No_; "VAT Registration No.") { }
         }
     }
 
@@ -55,7 +52,13 @@ report 50100 "Customer Info"
     // }
 
 
+    trigger OnPreReport()
+    begin
+        customerInfo.SetRange("No.", Customer.GetFilter("No."));
+        customerInfo.FindFirst();
+    end;
+
 
     var
-        myInt: Integer;
+        customerInfo: Record Customer;
 }

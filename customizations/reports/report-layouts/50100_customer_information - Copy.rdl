@@ -473,10 +473,10 @@
               <Value>=Fields!Cus_Picture.Value</Value>
               <MIMEType>image/jpeg</MIMEType>
               <Sizing>FitProportional</Sizing>
-              <Top>0.42898cm</Top>
+              <Top>0.53905cm</Top>
               <Left>0cm</Left>
-              <Height>2.84055cm</Height>
-              <Width>3.88337cm</Width>
+              <Height>2.46942cm</Height>
+              <Width>3.302cm</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <Border>
@@ -549,9 +549,6 @@ End Function
         </Field>
         <Field Name="Name">
           <DataField>Name</DataField>
-        </Field>
-        <Field Name="Cus_Picture">
-          <DataField>Cus_Picture</DataField>
         </Field>
         <Field Name="Address">
           <DataField>Address</DataField>
