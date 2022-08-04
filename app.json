@@ -1,0 +1,26 @@
+{
+  "id": "c06faa08-1493-4f52-9839-a951b46a2c48",
+  "name": "custom-hotel-menu-ext",
+  "publisher": "Default publisher",
+  "version": "1.0.0.0",
+  "brief": "",
+  "description": "",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "",
+  "url": "",
+  "logo": "",
+  "dependencies": [],
+  "screenshots": [],
+  "platform": "14.0.0.0",
+  "application": "14.0.0.0",
+  "idRanges": [
+    {
+      "from": 50100,
+      "to": 50149
+    }
+  ],
+  "contextSensitiveHelpUrl": "https://custom-hotel-menu-ext.com/help/",
+  "showMyCode": true,
+  "runtime": "3.0"
+}
