@@ -14,6 +14,7 @@ codeunit 50101 "Custom Json Object"
     begin
         //set vars
         itemno := 1000;
+
         //get item
         if rec_item.Get(itemno) then begin
             //create json object
