@@ -21,24 +21,30 @@ report 50101 "Transaction Information"
 
             dataitem("Trans. Sales Entry"; "Trans. Sales Entry")
             {
-                DataItemLink = "Transaction No." = field("Transaction No."), "Store No." = field("Store No."), "POS Terminal No." = field("POS Terminal No.");
+                DataItemLink = "Transaction No." = field("Transaction No."),
+                    "Store No." = field("Store No."),
+                     "POS Terminal No." = field("POS Terminal No.");
+
                 column(Transaction_No_; "Transaction No.") { }
                 column(Item_No_; "Item No.") { }
                 column(itemName; itemName) { }
                 column(Quantity; Quantity) { }
                 column(Unit_of_Measure; "Unit of Measure") { }
                 column(Net_Price; "Net Price") { }
+
+                trigger OnAfterGetRecord()
+                var
+                    item: Record Item;
+                begin
+                    item.SetRange("No.", "Trans. Sales Entry"."Item No.");
+                    if item.FindFirst() then begin
+                        itemName := item.Description;
+                    end
+                    else begin
+                        Message('Item no found: %1', item."No.");
+                    end
+                end;
             }
-
-            trigger OnAfterGetRecord()
-            var
-                item: Record Item;
-            begin
-                item.SetRange("No.", "Trans. Sales Entry"."Item No.");
-                if item.FindFirst() then
-                    itemName := item.Description;
-
-            end;
         }
     }
 
