@@ -1,6 +1,6 @@
 {
   "id": "c06faa08-1493-4f52-9839-a951b46a2c48",
-  "name": "custom-hotel-menu-ext",
+  "name": "al-programming-excs",
   "publisher": "Default publisher",
   "version": "1.0.0.0",
   "brief": "",
@@ -20,7 +20,7 @@
       "to": 50149
     }
   ],
-  "contextSensitiveHelpUrl": "https://custom-hotel-menu-ext.com/help/",
+  "contextSensitiveHelpUrl": "https://al-programming-excs.com/help/",
   "showMyCode": true,
   "runtime": "3.0"
 }

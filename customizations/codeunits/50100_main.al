@@ -2,27 +2,29 @@ codeunit 50100 MainCodeUnit
 {
     trigger OnRun()
     var
-    // factorial: Integer;
-    // num: Integer;
     begin
-        // num := 5;
-        // factorial := CalculateFactorial(num);
-        // Message('Running from codeunit. Factorial of 5 is %1', factorial);
     end;
 
-    // procedure CalculateFactorial(var num: Integer): Integer
-    // var
-    //     temp: Integer;
-    //     counter: Integer;
-    // begin
-    //     if (num = 1) or (num = 0) then begin
-    //         temp := 1;
-    //         exit(temp);
-    //     end
-    //     else begin
-    //         counter := num;
-    //         temp := counter - 1;
-    //         counter := counter * CalculateFactorial(temp);
-    //     end;
-    // end;
+    procedure ReadNotes(transferHeader: Record 5740): Text
+    var
+        recordLink: Record 2000000068;
+        noteText: BigText;
+        stream: Instream;
+        recRef: RecordRef;
+    begin
+        recRef.GetTable(transferHeader);
+        recordLink.SetRange("Record ID", recRef.RecordId);
+        if recordLink.FindFirst() then begin
+            repeat
+                recordLink.CalcFields(Note);
+                IF recordLink.Note.HasValue then begin
+                    Clear(noteText);
+                    recordLink.Note.CreateInstream(stream);
+                    noteText.Read(stream);
+                    noteText.GetSubText(noteText, 2);
+                    exit(Format(noteText));
+                end;
+            until recordLink.Next = 0;
+        end;
+    end;
 }
