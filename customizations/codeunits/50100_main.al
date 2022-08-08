@@ -46,7 +46,7 @@ codeunit 50100 MainCodeUnit
 
         client.DefaultRequestHeaders.Add('User-Agent', 'Dynamics 365 Business Central');
         client.Get(url, response);
-        if response.HttpStatusCode = 200 then begin
+        if response.IsSuccessStatusCode then begin
             content := response.Content;
             content.ReadAs(result);
 

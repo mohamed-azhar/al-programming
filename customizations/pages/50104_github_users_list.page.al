@@ -11,13 +11,6 @@ page 50104 "Github Users"
         {
             repeater(Lists)
             {
-                field("ID"; id)
-                {
-                    Caption = 'ID';
-                    Editable = false;
-                    Enabled = false;
-                    ApplicationArea = All;
-                }
                 field("Login"; Login)
                 {
                     Caption = 'Login';
@@ -29,6 +22,13 @@ page 50104 "Github Users"
                     begin
                         mainCu.SaveGithubUserInformation(Rec);
                     end;
+                }
+                field("ID"; id)
+                {
+                    Caption = 'ID';
+                    Editable = false;
+                    Enabled = false;
+                    ApplicationArea = All;
                 }
                 field(Url; Url)
                 {
