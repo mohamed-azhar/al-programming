@@ -65,4 +65,14 @@ codeunit 50100 MainCodeUnit
         end else
             Message('Invalid github user login provided.');
     end;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"POS Transaction Events", 'OnAfterChangePrice', '', true, true)]
+    local procedure OnAfterChangePrice(VAR POSTransaction: Record "POS Transaction"; VAR POSTransLine: Record "POS Trans. Line"; VAR CurrInput: Text)
+    var
+        fiftyPerc: Decimal;
+    begin
+        fiftyPerc := POSTransLine."Net Amount" * 0.5;
+        if POSTransLine.Price < fiftyPerc then
+            Message('Price cannot be lower than 50% of the original item price! 😡');
+    end;
 }
